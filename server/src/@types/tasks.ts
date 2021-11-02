@@ -1,7 +1,7 @@
-export interface createTask {
+export interface CreateTask {
   task: string,
 }
 
-export interface updateTask {
-  task: string, 
+export interface UpdateTask {
+  task: string,
 }

@@ -1,8 +1,8 @@
-import { createTask, updateTask } from 'src/@types/tasks';
+import { CreateTask, UpdateTask } from 'src/@types/tasks';
 import * as Schema from 'src/utils/schema';
 import * as Task from '../models/tasks';
 
-export const create = async (data: createTask, userId: string) => {
+export const create = async (data: CreateTask, userId: string) => {
   const { error } = Schema.createTask.validate(data);
   if (error) return { status: 400, message: 'Invalid entries!' };
 
@@ -33,7 +33,7 @@ export const remove = async (id: string) => {
   return { status: 204, data: 'Sucess removed!' };
 };
 
-export const update = async (id: string, data: updateTask) => {
+export const update = async (id: string, data: UpdateTask) => {
   const { error } = Schema.createTask.validate(data);
   if (error) return { status: 400, message: 'Invalid entries!' };
 
