@@ -1,11 +1,12 @@
 import express from 'express';
-import Task from '../controllers/tasks';
+import * as Task from '../controllers/tasks';
+import auth from '../middlewares/auth';
 
 const router = express.Router();
 
 router.get('/', Task.getAll);
 router.get('/:id', Task.getById);
-router.post('/', Task.create);
+router.post('/', auth, Task.create);
 router.put('/:id', Task.update);
 router.delete('/:id', Task.remove);
 

@@ -1,4 +1,4 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 export const createUser = Joi.object({
   name: Joi.string().required(),
@@ -14,5 +14,3 @@ export const updateTask = Joi.object({
   userId: Joi.number().required(),
   task: Joi.string().required(),
 });
-
-export default { createTask, createUser, updateTask }
