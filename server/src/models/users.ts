@@ -16,7 +16,16 @@ export const getAll = async () => {
 };
 
 export const getById = async (id: string) => {
+  if (!ObjectId.isValid(id)) return null;
   const db = await connection();
   const user = db.collection('users').findOne({ _id: new ObjectId(id) });
   return user;
 };
+
+export const findByEmail = async (email: string) => {
+  const db = await connection();
+  const user = db.collection('users').findOne({ email });
+  return user;
+};
+
+export default { getAll, create, getById, findByEmail };
