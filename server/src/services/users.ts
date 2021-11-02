@@ -2,7 +2,7 @@ import User from '../models/users';
 import Schema from '../utils/schema';
 import { createUser } from 'src/@types/users';
 
-export const create = async (data: createUser) => {
+const create = async (data: createUser) => {
   const { error } = Schema.createUser.validate(data);
   if (error) return { status: 400, message: 'Invalid entries!' }
 
@@ -15,13 +15,13 @@ export const create = async (data: createUser) => {
   return { status: 201, data: newUser };
 };
 
-export const getAll = async () => {
+const getAll = async () => {
   const users = await User.getAll();
 
   return { status: 200, data: users }
 };
 
-export const getById = async (id: string) => {
+const getById = async (id: string) => {
   const user = await User.getById(id);
   if (!user) return { status: 404, message: 'User not found!' };
 
