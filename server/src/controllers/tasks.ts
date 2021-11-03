@@ -26,8 +26,10 @@ export const getAll = async (_req: Request, res: Response) => {
   return res.status(status).json(data);
 };
 
-export const getById = async (req: Request, res: Response) => {
-  const { status, data, message } = await Task.getById(req.params.id);
+export const getById = async (req: Myreq, res: Response) => {
+  const user: Payload | undefined = req.user;
+
+  const { status, data, message } = await Task.getById((user as any));
   if (message) return res.status(status).json({ message });
 
   return res.status(status).json(data);

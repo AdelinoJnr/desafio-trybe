@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../context/userContext';
 
 import { api } from '../services/api';
 
+interface Task {
+  task: string
+}
+
 function Home(): JSX.Element {
-  const [tasks, setTasks] = useState([]);
+  const { token: { token } } = useContext(UserContext);
+
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   const fetchApi = async () => {
     try {
-      const request = await api.get('api/tasks');
+      const request = await api.get('api/tasks/userId', { headers: { Authorization: token } } );
+      
       setTasks(request.data);
     } catch (_e) {
       console.log('Deu ruim!');
-      
     }
   };
 
@@ -21,7 +28,9 @@ function Home(): JSX.Element {
 
   return (
     <>
-      {console.log(tasks)}
+      <ul>
+        {tasks && tasks.map((e, index) => <li key={index}>{e.task}</li>)}
+      </ul>
     </>
   );
 }

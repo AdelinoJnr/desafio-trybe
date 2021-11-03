@@ -10,7 +10,6 @@ interface Payload {
 
 export const create = async (data: CreateTask, user: Payload) => {
   const { _id } = user;
-  console.log(_id);
   
   const { error } = Schema.createTask.validate(data);
   if (error) return { status: 400, message: 'Invalid entries!' };
@@ -26,8 +25,9 @@ export const getAll = async () => {
   return { status: 200, data: tasks };
 };
 
-export const getById = async (id: string) => {
-  const task = await Task.getById(id);
+export const getById = async (user: Payload) => {
+  const { _id } = user;
+  const task = await Task.getById(_id);
   if (!task) return { status: 404, message: 'Task not found!' };
 
   return { status: 200, data: task };
