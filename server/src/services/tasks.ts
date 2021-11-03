@@ -2,11 +2,20 @@ import { CreateTask, UpdateTask } from 'src/@types/tasks';
 import * as Schema from '../utils/schema';
 import * as Task from '../models/tasks';
 
-export const create = async (data: CreateTask, userId: string) => {
+interface Payload {
+  _id: string,
+  name: string,
+  email: string
+}
+
+export const create = async (data: CreateTask, user: Payload) => {
+  const { _id } = user;
+  console.log(_id);
+  
   const { error } = Schema.createTask.validate(data);
   if (error) return { status: 400, message: 'Invalid entries!' };
 
-  const task = await Task.create(data, userId);
+  const task = await Task.create(data, _id);
 
   return { status: 201, data: task };
 };

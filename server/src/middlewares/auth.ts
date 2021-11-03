@@ -4,9 +4,9 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 import { SECRET } from '../database';
 
 interface Payload extends JwtPayload {
+  _id: string,
   name: string,
-  email: string,
-  password: string
+  email: string
 }
 
 interface Myreq extends Request {
@@ -18,9 +18,10 @@ const auth = async (req: Myreq, res: Response, next: NextFunction) => {
   if (!token) return res.status(401).json({ message: 'Token invalid!' });
 
   try {
-    const payload = jwt.verify(token, SECRET) as Payload;
+    const { data } = jwt.verify(token, SECRET) as Payload;
 
-    req.user = payload;
+    req.user = data;
+    
     return next();
   } catch (_e) {
     return res.status(401).json({ message: 'Token invalid!' });

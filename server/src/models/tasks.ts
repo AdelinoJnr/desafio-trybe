@@ -6,7 +6,7 @@ import connection from './connection';
 export const create = async (data: CreateTask, userId: string) => {
   const db = await connection();
   const { insertedId } = await db.collection('tasks').insertOne({ ...data, userId });
-  return { id: insertedId, ...data };
+  return { id: insertedId, ...data, userId };
 };
 
 export const getAll = async () => {
@@ -15,11 +15,11 @@ export const getAll = async () => {
   return tasks;
 };
 
-export const getById = async (id: string) => {
-  if (!ObjectId.isValid(id)) return null;
+export const getById = async (userId: string) => {
+  if (!ObjectId.isValid(userId)) return null;
   const db = await connection();
-  const task = await db.collection('tasks').findOne({ _id: new ObjectId(id) });
-  return task;
+  const tasks = await db.collection('tasks').find({ userId }).toArray();
+  return tasks;
 };
 
 export const remove = async (id: string) => {
