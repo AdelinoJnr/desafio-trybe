@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import * as User from '../services/users';
 
-export const create = async (req: Request, res: Response) => {
+export const create = async (req: Request, res: Response, next: NextFunction) => {
   const { status, data, message } = await User.create(req.body);
-  if (message) return res.status(status).json({ message });
+  if (message) return next({ message, status });
 
   return res.status(status).json(data);
 };

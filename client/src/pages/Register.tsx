@@ -1,34 +1,39 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Login(): JSX.Element {
+function Register(): JSX.Element {
+  const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   return (
     <>
-      <h1>Login</h1>
+      <h1>Cadastrar</h1>
+      <input
+        type="text"
+        name="name"
+        value={name}
+        onChange={(ev) => setName(ev.target.value)}
+        placeholder="Digite seu nome"
+      />
       <input
         type="text"
         name="email"
         value={email}
         onChange={(ev) => setEmail(ev.target.value)}
-        autoComplete="off"
         placeholder="Digite seu email"
       />
       <input
-        type="text"
+        type="password"
         name="password"
         value={password}
         onChange={(ev) => setPassword(ev.target.value)}
-        autoComplete="off"
         placeholder="Digite sua senha"
       />
-      <button type="submit">Entrar</button>
-      <Link to="/register">Quero cadastrar</Link>
+      <button type="submit">Cadastrar</button>
+      <Link to="/login">Ja tenho cadastro</Link>
     </>
   );
 }
 
-export default Login;
+export default Register;
