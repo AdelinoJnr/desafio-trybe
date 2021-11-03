@@ -43,23 +43,25 @@ function Login(): JSX.Element {
   return (
     <>
       <h1>Login</h1>
-      <input
-        type="text"
-        name="email"
-        value={email}
-        onChange={(ev) => setEmail(ev.target.value)}
-        autoComplete="off"
-        placeholder="Digite seu email"
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={(ev) => setPassword(ev.target.value)}
-        autoComplete="off"
-        placeholder="Digite sua senha"
-      />
-      <button type="submit" onClick={loginUser} >Entrar</button>
+      <form>
+        <input
+          type="text"
+          name="email"
+          value={email}
+          onChange={(ev) => setEmail(ev.target.value)}
+          autoComplete="off"
+          placeholder="Digite seu email"
+        />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={(ev) => setPassword(ev.target.value)}
+          autoComplete="off"
+          placeholder="Digite sua senha"
+        />
+        <button type="submit" onClick={loginUser} >Entrar</button>
+      </form>
       <Link to="/register">Quero cadastrar</Link>
     </>
   );
