@@ -1,9 +1,9 @@
 import { ObjectId } from 'mongodb';
 
-import { createTask, updateTask } from 'src/@types/tasks';
+import { CreateTask, UpdateTask } from 'src/@types/tasks';
 import connection from './connection';
 
-export const create = async (data: createTask, userId: string) => {
+export const create = async (data: CreateTask, userId: string) => {
   const db = await connection();
   const { insertedId } = await db.collection('tasks').insertOne({ ...data, userId });
   return { id: insertedId, ...data };
@@ -27,7 +27,7 @@ export const remove = async (id: string) => {
   await db.collection('tasks').deleteOne({ _id: new ObjectId(id) });
 };
 
-export const update = async (id: string, data: updateTask) => {
+export const update = async (id: string, data: UpdateTask) => {
   const db = await connection();
   const task = await db.collection('tasks').findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { ...data } });
   return task;

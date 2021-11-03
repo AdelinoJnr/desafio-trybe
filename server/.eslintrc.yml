@@ -1,6 +1,7 @@
 env:
   es2021: true
   node: true
+  mocha: true
 extends:
   - airbnb-base
   - airbnb-typescript/base
@@ -11,5 +12,9 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
+ignorePatterns:
+  - '**/mocks/*.ts'
+  - '**/dist/
 rules: 
   no-console: off
+

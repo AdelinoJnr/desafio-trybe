@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { LoginUser } from 'src/@types/users';
-import { SECRET } from 'src/database';
+import { SECRET } from '../database';
 import * as User from '../models/users';
 
 const generatorToken = async (data: LoginUser) => {

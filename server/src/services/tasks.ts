@@ -1,5 +1,5 @@
 import { CreateTask, UpdateTask } from 'src/@types/tasks';
-import * as Schema from 'src/utils/schema';
+import * as Schema from '../utils/schema';
 import * as Task from '../models/tasks';
 
 export const create = async (data: CreateTask, userId: string) => {

@@ -1,8 +1,8 @@
-import { createUser } from 'src/@types/users';
-import * as User from '@models/users';
+import { CreateUser } from 'src/@types/users';
+import * as User from '../models/users';
 import * as Schema from '../utils/schema';
 
-export const create = async (data: createUser) => {
+export const create = async (data: CreateUser) => {
   const { error } = Schema.createUser.validate(data);
   if (error) return { status: 400, message: 'Invalid entries!' };
 

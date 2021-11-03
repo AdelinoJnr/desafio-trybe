@@ -9,10 +9,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Users
-app.use('/api/user', userRouter);
+app.use('/api/users', userRouter);
 
 // Task
-app.use('/api/task', taskRouter);
+app.use('/api/tasks', taskRouter);
 
 // Login
 app.use('/api/login', loginRouter);

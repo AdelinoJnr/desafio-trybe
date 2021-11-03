@@ -1,4 +1,4 @@
-import Login from '@services/login';
+import Login from '../services/login';
 import { Request, Response } from 'express';
 
 const generatorToken = async (req: Request, res: Response) => {

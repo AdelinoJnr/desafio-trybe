@@ -1,8 +1,8 @@
-import { createUser } from 'src/@types/users';
+import { CreateUser } from 'src/@types/users';
 import { ObjectId } from 'mongodb';
 import connection from './connection';
 
-export const create = async (data: createUser) => {
+export const create = async (data: CreateUser) => {
   const db = await connection();
   const { insertedId } = await db.collection('users').insertOne({ ...data });
   return { id: insertedId, ...data };

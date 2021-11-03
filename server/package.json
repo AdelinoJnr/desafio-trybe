@@ -4,9 +4,10 @@
   "description": "",
   "main": "src/api/server.ts",
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register .",
+    "start": "node dist/api/server.js",
+    "build": "npx tsc",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register -r tsconfig-paths/register ./src/test/**/*$NAME*.{test,spec}.ts --exit"
   },
   "keywords": [],
   "author": "",
@@ -20,9 +21,12 @@
     "tsc": "^2.0.3"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.22",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.5",
+    "@types/mocha": "^9.0.0",
     "@types/mongodb": "^4.0.7",
+    "@types/sinon": "^10.0.6",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "chai": "^4.3.4",
