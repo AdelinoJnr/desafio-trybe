@@ -1,8 +1,11 @@
-function App() {
+import { Route, Switch } from 'react-router-dom';
+import Login from './pages/Login';
+
+function App(): JSX.Element {
   return (
-    <div>
-      Hello Word
-    </div>
+    <Switch>
+      <Route path="/login" component={Login} />
+    </Switch>
   );
 }
 
