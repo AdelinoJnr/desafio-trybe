@@ -28,6 +28,7 @@ function Home(): JSX.Element {
 
   const [tasks, setTasks] = useState<ArrayTask[]>([]);
   const [task, setTask] = useState<string>('');
+  const [renderPage, setRenderPage] = useState<number>(0);
 
   const getAllTasks = async () => {
     try {
@@ -53,6 +54,26 @@ function Home(): JSX.Element {
     getAllTasks();
   }, []);
 
+  useEffect(() => {
+    getAllTasks();
+  }, [renderPage]);
+
+  const renderTask = () => {
+    return (
+      <section>
+        {tasks && tasks.map((task, index) => (
+          <Task
+            key={task._id}
+            renderPage={ renderPage }
+            setRenderPage={setRenderPage}
+            length={index}
+            task={task}
+          />
+        ) )}
+      </section>
+    );
+  };
+
 
   if (!token) return <Redirect to="/login" />;
 
@@ -74,9 +95,7 @@ function Home(): JSX.Element {
         <button className="btn" type="submit" onClick={createTask} >Adicionar</button>
       </form>
       <h2 className="title-pages">Tarefas</h2>
-      <section>
-        {tasks && tasks.map((task, index) => <Task key={task._id} length={index} task={task} /> )}
-      </section>
+      { renderTask() }
     </>
   );
 }

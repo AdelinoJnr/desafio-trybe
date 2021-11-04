@@ -24,15 +24,8 @@
 
   --texts-inputs-200: rgb(243, 243, 243);
 
-  --grafic-temperatura-600: rgb(212, 8, 8);
+  --yellow-color-600: rgb(243, 239, 10);
 
-  --grafic-potencia-600: rgb(66, 46, 246);
-
-  --grafic-tempo-600: rgb(39, 143, 36);
-
-  --grafic-tensao-600: rgb(255, 157, 0);
-
-  --grafic-corrente-600: rgb(209, 13, 199);
 }
 
 html {
@@ -136,12 +129,20 @@ input {
 .content-task {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  width: 70%;
+  align-items: center;
+  margin: 20px auto;
+  width: 60%;
   min-width: 720px;
-  background-color: var(--blue-color-600);
   padding: 15px;
   border-radius: 10px;
+}
+
+.content-blue {
+  background-color: var(--blue-color-600);
+}
+
+.content-pink {
+  background-color: var(--pink-color-600);
 }
 
 .content-task > p {
@@ -150,8 +151,31 @@ input {
   margin-left: 20px;
 }
 
+.content-btn-update {
+  margin-top: 5px;
+}
+
 .content-btn-update > button {
-  margin: 0 20px;
-  background-color: none;
+  margin: 0 30px;
+  border: none;
+  background-color: var(--pink-color-600);
   cursor: pointer;
+}
+
+.icon-update {
+  color: var(--back-ground-600);
+  width: 20px;
+  height: 20px;
+  background-color: var(--yellow-color-600);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.icon-delete {
+  color: var(--back-ground-600);
+  width: 20px;
+  height: 20px;
+  background-color: var(--red-color-600);
+  padding: 5px;
+  border-radius: 10px;
 }
