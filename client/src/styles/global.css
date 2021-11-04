@@ -93,14 +93,14 @@ input {
 }
 
 /* Page Register */
-.form-register {
+.form-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
 
-.form-register > button {
+.form-content > button {
   background-color: var(--green-color-600);
   color: var(--texts-inputs-200);
 }
@@ -110,4 +110,48 @@ input {
   font-size: 1.1rem;
   text-align: center;
   margin: 40px 0;
+}
+
+/* componente Header */
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0;
+  margin-bottom: 50px;
+}
+
+.text-welcome {
+  color: var(--texts-inputs-200);
+}
+
+.name-user {
+  color: var(--blue-color-600);
+}
+
+.exit-app {
+  font-size: 1.5rem;
+}
+
+/* components Task */
+.content-task {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 70%;
+  min-width: 720px;
+  background-color: var(--blue-color-600);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.content-task > p {
+  color: var(--texts-inputs-200);
+  font-size: 1.2rem;
+  margin-left: 20px;
+}
+
+.content-btn-update > button {
+  margin: 0 20px;
+  background-color: none;
+  cursor: pointer;
 }

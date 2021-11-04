@@ -43,7 +43,7 @@ function Login(): JSX.Element {
   return (
     <>
       <h1 className="title-pages">Login</h1>
-      <form className="form-register">
+      <form className="form-content">
         <input
           type="text"
           name="email"

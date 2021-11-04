@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 
+import Task from '../components/Task';
 import { api } from '../services/api';
 
-interface Task {
-  task: string
+interface ArrayTask {
+  _id: string,
+  task: string,
+  userId: string,
 }
 
 interface DefaultContext {
@@ -23,7 +26,7 @@ interface DefaultContext {
 function Home(): JSX.Element {
   const { token: { token }, user } = useContext<DefaultContext>(UserContext);
 
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<ArrayTask[]>([]);
   const [task, setTask] = useState<string>('');
 
   const getAllTasks = async () => {
@@ -55,21 +58,25 @@ function Home(): JSX.Element {
 
   return (  
     <>
-      <h2>{user && user.name}</h2>
-      <Link to="/login">Sair</Link>
-      <form>
+      <div className="header">
+        <h2>{user && <p className="text-welcome">Seja bem vindo(a) <span className="name-user">{user.name}</span></p> }</h2>
+        <Link className="exit-app" to="/login">Sair</Link>
+      </div>
+      <form className="form-content">
         <input
           type="text"
           name="task"
           value={task}
           onChange={(ev) => setTask(ev.target.value)}
           placeholder="Adicionar Tarefa"
+          autoComplete="off"
         />
-        <button type="submit" onClick={createTask} >Adicionar</button>
+        <button className="btn" type="submit" onClick={createTask} >Adicionar</button>
       </form>
-      <ul>
-        {tasks && tasks.map((e, index) => <li key={index}>{e.task}</li>)}
-      </ul>
+      <h2 className="title-pages">Tarefas</h2>
+      <section>
+        {tasks && tasks.map((task, index) => <Task key={task._id} length={index} task={task} /> )}
+      </section>
     </>
   );
 }

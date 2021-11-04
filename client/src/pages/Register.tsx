@@ -28,7 +28,7 @@ function Register(): JSX.Element {
   return (
     <>
       <h1 className="title-pages">Cadastrar</h1>
-      <form className="form-register">
+      <form className="form-content">
         <input
           type="text"
           name="name"
