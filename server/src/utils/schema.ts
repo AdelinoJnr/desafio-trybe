@@ -8,7 +8,6 @@ export const createUser = Joi.object({
 
 export const createTask = Joi.object({
   task: Joi.string().required(),
-  userId: Joi.string().required(),
 });
 
 export const updateTask = Joi.object({

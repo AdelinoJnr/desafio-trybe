@@ -23,7 +23,7 @@ function Login(): JSX.Element {
   const [password, setPassword] = useState<string>('');
   const [login, setLogin] = useState<boolean>(false);
 
-  const loginUser = async (ev: any) => {
+  const loginUser = async (ev: React.MouseEvent) => {
     ev.preventDefault();
     const payload = { email, password };
     try {
@@ -42,8 +42,8 @@ function Login(): JSX.Element {
 
   return (
     <>
-      <h1>Login</h1>
-      <form>
+      <h1 className="title-pages">Login</h1>
+      <form className="form-content">
         <input
           type="text"
           name="email"
@@ -60,9 +60,11 @@ function Login(): JSX.Element {
           autoComplete="off"
           placeholder="Digite sua senha"
         />
-        <button type="submit" onClick={loginUser} >Entrar</button>
+        <button className="btn" type="submit" onClick={loginUser} >Entrar</button>
       </form>
-      <Link to="/register">Quero cadastrar</Link>
+      <div className="content-link-user">
+      <p>Ainda nao possui cadastro? <Link to="/register">Click aqui</Link> </p>
+      </div>
     </>
   );
 }

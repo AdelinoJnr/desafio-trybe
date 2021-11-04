@@ -13,7 +13,7 @@ function Register(): JSX.Element {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const createUser = async (ev: any) => {
+  const createUser = async (ev: React.MouseEvent) => {
     ev.preventDefault();
     const payload: Payload = { name, email, password };
     try {
@@ -27,8 +27,8 @@ function Register(): JSX.Element {
 
   return (
     <>
-      <h1>Cadastrar</h1>
-      <form>
+      <h1 className="title-pages">Cadastrar</h1>
+      <form className="form-content">
         <input
           type="text"
           name="name"
@@ -50,9 +50,11 @@ function Register(): JSX.Element {
           onChange={(ev) => setPassword(ev.target.value)}
           placeholder="Digite sua senha"
         />
-        <button type="submit" onClick={createUser} >Cadastrar</button>
+        <button className="btn" type="submit" onClick={createUser} >Cadastrar</button>
       </form>
-      <Link to="/login">Ja tenho cadastro</Link>
+      <div className="content-link-user">
+        <p>Ja possui cadastro? <Link to="/login">Click aqui</Link> </p>
+      </div>
     </>
   );
 }

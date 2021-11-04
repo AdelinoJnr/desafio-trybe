@@ -1,0 +1,190 @@
+:root {
+
+  --back-ground-600: rgb(37, 37, 49);
+
+  --black-color-800: rgb(19, 17, 29);
+
+  --purple-color-600: rgb(158, 104, 217);
+  
+  --blue-color-600: rgb(108, 114, 205);
+
+  --blue-color-400: rgba(24, 32, 134, 0.603);
+  
+  --pink-color-600: rgb(203, 105, 193);
+
+  --pink-color-400: rgba(104, 4, 94, 0.561);
+  
+  --green-color-600: rgb(39, 143, 36);
+
+  --red-color-600: rgb(207, 28, 28);
+
+  --texts-inputs-600: rgb(152, 152, 152);
+  
+  --texts-inputs-400: rgb(227, 227, 227);
+
+  --texts-inputs-200: rgb(243, 243, 243);
+
+  --yellow-color-600: rgb(243, 239, 10);
+
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: rgb(37, 37, 49);
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--pink-color-600);
+}
+
+.btn {
+  border: none;
+  font-family: Poppins, sans-serif;
+  border-radius: 10px;
+  padding: 10px 15px;
+  width: 300px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.title-pages {
+  margin: 50px 0;
+  color: var(--texts-inputs-200);
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 20px;
+}
+
+input {
+  font-family: Poppins, sans-serif;
+  border: none;
+  border-radius: 10px;
+  width: 500px;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+/* Page Register */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.form-content > button {
+  background-color: var(--green-color-600);
+  color: var(--texts-inputs-200);
+}
+
+.content-link-user {
+  color: var(--texts-inputs-200);
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* componente Header */
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0;
+  margin-bottom: 50px;
+}
+
+.text-welcome {
+  color: var(--texts-inputs-200);
+}
+
+.name-user {
+  color: var(--blue-color-600);
+}
+
+.exit-app {
+  font-size: 1.5rem;
+}
+
+/* components Task */
+.content-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  width: 60%;
+  min-width: 720px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.content-blue {
+  background-color: var(--blue-color-600);
+}
+
+.content-pink {
+  background-color: var(--pink-color-600);
+}
+
+.content-task > p {
+  color: var(--texts-inputs-200);
+  font-size: 1.2rem;
+  margin-left: 20px;
+}
+
+.content-btn-update {
+  margin-top: 5px;
+}
+
+.content-btn-update > button {
+  margin: 0 30px;
+  border: none;
+  background-color: var(--pink-color-600);
+  cursor: pointer;
+}
+
+.icon-update {
+  color: var(--back-ground-600);
+  width: 20px;
+  height: 20px;
+  background-color: var(--yellow-color-600);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.icon-delete {
+  color: var(--back-ground-600);
+  width: 20px;
+  height: 20px;
+  background-color: var(--red-color-600);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.content-update-form {
+  width: 70%;
+}
+
+.content-update-form > input {
+  width: 90%;
+  min-width: 300px;
+}

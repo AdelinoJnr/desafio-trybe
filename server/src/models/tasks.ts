@@ -3,10 +3,10 @@ import { ObjectId } from 'mongodb';
 import { CreateTask, UpdateTask } from 'src/@types/tasks';
 import connection from './connection';
 
-export const create = async (data: CreateTask) => {
+export const create = async (data: CreateTask, userId: string) => {
   const db = await connection();
-  const { insertedId } = await db.collection('tasks').insertOne({ ...data });
-  return { id: insertedId, ...data };
+  const { insertedId } = await db.collection('tasks').insertOne({ ...data, userId });
+  return { id: insertedId, ...data, userId };
 };
 
 export const getAll = async () => {
