@@ -48,7 +48,7 @@ function Task({ task, length, setRenderPage, renderPage, setTasks }: Props): JSX
       await api.delete(`api/tasks/${_id}`);
       setRenderPage(renderPage + 1);
     } catch (_e) {
-      console.log('Deu ruim!');  
+      return; 
     }
   };
 
@@ -60,7 +60,7 @@ function Task({ task, length, setRenderPage, renderPage, setTasks }: Props): JSX
       setTasks(data);
       setRenderPage(renderPage + 1);
     } catch (_e) {
-      console.log('Deu ruim!');
+      return;
     }
     setUpdate(true);
   };
@@ -80,11 +80,11 @@ function Task({ task, length, setRenderPage, renderPage, setTasks }: Props): JSX
               <button type="submit" onClick={updateTask}></button>
             </form> 
       }
-      <div className={ checkedNumberButton } >
-        <button onClick={ () => setUpdate(false) } type="button">
+      <div>
+        <button className={ checkedNumberButton } onClick={ () => setUpdate(false) } type="button">
           <AiFillEdit className="icon-update" />
         </button>
-        <button onClick={ deleteTask } type="button">
+        <button className={ checkedNumberButton } onClick={ deleteTask } type="button">
           <IoTrashBinSharp className="icon-delete" />
         </button>
       </div>

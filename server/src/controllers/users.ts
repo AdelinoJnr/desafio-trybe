@@ -1,15 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import * as User from '../services/users';
 
-interface Payload {
-  _id: string,
-  name: string,
-  email: string
-}
-
-interface Myreq extends Request {
-  user?: Payload
-}
+import { Myreq } from 'src/@types/tasks';
 
 export const create = async (req: Request, res: Response, next: NextFunction) => {
   const { status, data, message } = await User.create(req.body);

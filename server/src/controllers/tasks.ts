@@ -1,15 +1,7 @@
 import { Request, Response } from 'express';
 import * as Task from '../services/tasks';
 
-interface Payload {
-  _id: string,
-  name: string,
-  email: string
-}
-
-interface Myreq extends Request {
-  user?: Payload
-}
+import { Myreq, Payload } from 'src/@types/tasks';
 
 export const create = async (req: Myreq, res: Response) => {
   const user: Payload | undefined = req.user;
@@ -43,6 +35,7 @@ export const remove = async (req: Request, res: Response) => {
 };
 
 export const update = async (req: Request, res: Response) => {
+
   const { status, data, message } = await Task.update(req.params.id, req.body);
   if (message) return res.status(status).json({ message });
 

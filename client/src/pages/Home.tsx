@@ -35,7 +35,7 @@ function Home(): JSX.Element {
       const { data } = await api.get('api/tasks/userId', { headers: { Authorization: token } } );
       setTasks(data);
     } catch (_e) {
-      console.log('Deu ruim!');
+      return;
     }
   };
 
@@ -46,7 +46,7 @@ function Home(): JSX.Element {
       await getAllTasks();
       setTask('');
     } catch (_e) {
-      console.log('Deu ruim!');
+      return;
     }
   };
 
