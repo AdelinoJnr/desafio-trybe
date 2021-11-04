@@ -179,3 +179,12 @@ input {
   padding: 5px;
   border-radius: 10px;
 }
+
+.content-update-form {
+  width: 70%;
+}
+
+.content-update-form > input {
+  width: 90%;
+  min-width: 300px;
+}

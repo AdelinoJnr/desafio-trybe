@@ -23,7 +23,7 @@ function Login(): JSX.Element {
   const [password, setPassword] = useState<string>('');
   const [login, setLogin] = useState<boolean>(false);
 
-  const loginUser = async (ev: any) => {
+  const loginUser = async (ev: React.MouseEvent) => {
     ev.preventDefault();
     const payload = { email, password };
     try {

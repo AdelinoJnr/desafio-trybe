@@ -13,7 +13,7 @@ function Register(): JSX.Element {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const createUser = async (ev: any) => {
+  const createUser = async (ev: React.MouseEvent) => {
     ev.preventDefault();
     const payload: Payload = { name, email, password };
     try {

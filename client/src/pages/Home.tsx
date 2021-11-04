@@ -39,7 +39,7 @@ function Home(): JSX.Element {
     }
   };
 
-  const createTask = async (ev: any) => {
+  const createTask = async (ev: React.MouseEvent) => {
     ev.preventDefault();
     try {
       await api.post('api/tasks', { task }, { headers: { Authorization: token } });
@@ -68,12 +68,12 @@ function Home(): JSX.Element {
             setRenderPage={setRenderPage}
             length={index}
             task={task}
+            setTasks={setTasks}
           />
         ) )}
       </section>
     );
   };
-
 
   if (!token) return <Redirect to="/login" />;
 
