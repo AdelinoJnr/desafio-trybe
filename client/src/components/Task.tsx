@@ -80,11 +80,11 @@ function Task({ task, length, setRenderPage, renderPage, setTasks }: Props): JSX
               <button type="submit" onClick={updateTask}></button>
             </form> 
       }
-      <div className={ checkedNumberButton } >
-        <button onClick={ () => setUpdate(false) } type="button">
+      <div>
+        <button className={ checkedNumberButton } onClick={ () => setUpdate(false) } type="button">
           <AiFillEdit className="icon-update" />
         </button>
-        <button onClick={ deleteTask } type="button">
+        <button className={ checkedNumberButton } onClick={ deleteTask } type="button">
           <IoTrashBinSharp className="icon-delete" />
         </button>
       </div>

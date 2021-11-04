@@ -152,13 +152,8 @@ input {
 }
 
 .content-btn-update {
-  margin-top: 5px;
-}
-
-.content-btn-update > button {
-  margin: 0 30px;
+  margin: 5px 30px 0;
   border: none;
-  background-color: var(--pink-color-600);
   cursor: pointer;
 }
 
