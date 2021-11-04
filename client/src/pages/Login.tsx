@@ -43,7 +43,7 @@ function Login(): JSX.Element {
   return (
     <>
       <h1 className="title-pages">Login</h1>
-      <form className="form-login">
+      <form className="form-register">
         <input
           type="text"
           name="email"
@@ -62,7 +62,9 @@ function Login(): JSX.Element {
         />
         <button className="btn" type="submit" onClick={loginUser} >Entrar</button>
       </form>
-      <Link to="/register">Quero cadastrar</Link>
+      <div className="content-link-user">
+      <p>Ainda nao possui cadastro? <Link to="/register">Click aqui</Link> </p>
+      </div>
     </>
   );
 }
