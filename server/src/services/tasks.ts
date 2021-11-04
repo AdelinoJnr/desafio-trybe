@@ -2,11 +2,7 @@ import { CreateTask, UpdateTask } from 'src/@types/tasks';
 import * as Schema from '../utils/schema';
 import * as Task from '../models/tasks';
 
-interface Payload {
-  _id: string,
-  name: string,
-  email: string
-}
+import { Payload } from 'src/@types/tasks';
 
 export const create = async (data: CreateTask, user: Payload) => {
   const { _id } = user;

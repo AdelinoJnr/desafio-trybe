@@ -11,6 +11,5 @@ export const createTask = Joi.object({
 });
 
 export const updateTask = Joi.object({
-  userId: Joi.number().required(),
   task: Joi.string().required(),
 });
