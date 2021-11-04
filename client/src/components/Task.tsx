@@ -48,7 +48,7 @@ function Task({ task, length, setRenderPage, renderPage, setTasks }: Props): JSX
       await api.delete(`api/tasks/${_id}`);
       setRenderPage(renderPage + 1);
     } catch (_e) {
-      console.log('Deu ruim!');  
+      return; 
     }
   };
 
@@ -60,7 +60,7 @@ function Task({ task, length, setRenderPage, renderPage, setTasks }: Props): JSX
       setTasks(data);
       setRenderPage(renderPage + 1);
     } catch (_e) {
-      console.log('Deu ruim!');
+      return;
     }
     setUpdate(true);
   };
