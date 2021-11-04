@@ -42,8 +42,8 @@ function Login(): JSX.Element {
 
   return (
     <>
-      <h1>Login</h1>
-      <form>
+      <h1 className="title-pages">Login</h1>
+      <form className="form-login">
         <input
           type="text"
           name="email"
@@ -60,7 +60,7 @@ function Login(): JSX.Element {
           autoComplete="off"
           placeholder="Digite sua senha"
         />
-        <button type="submit" onClick={loginUser} >Entrar</button>
+        <button className="btn" type="submit" onClick={loginUser} >Entrar</button>
       </form>
       <Link to="/register">Quero cadastrar</Link>
     </>

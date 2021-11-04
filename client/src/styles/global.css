@@ -1,0 +1,113 @@
+:root {
+
+  --back-ground-600: rgb(37, 37, 49);
+
+  --black-color-800: rgb(19, 17, 29);
+
+  --purple-color-600: rgb(158, 104, 217);
+  
+  --blue-color-600: rgb(108, 114, 205);
+
+  --blue-color-400: rgba(24, 32, 134, 0.603);
+  
+  --pink-color-600: rgb(203, 105, 193);
+
+  --pink-color-400: rgba(104, 4, 94, 0.561);
+  
+  --green-color-600: rgb(39, 143, 36);
+
+  --red-color-600: rgb(207, 28, 28);
+
+  --texts-inputs-600: rgb(152, 152, 152);
+  
+  --texts-inputs-400: rgb(227, 227, 227);
+
+  --texts-inputs-200: rgb(243, 243, 243);
+
+  --grafic-temperatura-600: rgb(212, 8, 8);
+
+  --grafic-potencia-600: rgb(66, 46, 246);
+
+  --grafic-tempo-600: rgb(39, 143, 36);
+
+  --grafic-tensao-600: rgb(255, 157, 0);
+
+  --grafic-corrente-600: rgb(209, 13, 199);
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: rgb(37, 37, 49);
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--pink-color-600);
+}
+
+.btn {
+  border: none;
+  font-family: Poppins, sans-serif;
+  border-radius: 10px;
+  padding: 10px 15px;
+  width: 300px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.title-pages {
+  margin: 50px 0;
+  color: var(--texts-inputs-200);
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 20px;
+}
+
+input {
+  font-family: Poppins, sans-serif;
+  border: none;
+  border-radius: 10px;
+  width: 500px;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+/* Page Register */
+.form-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.form-register > button {
+  background-color: var(--green-color-600);
+  color: var(--texts-inputs-200);
+}
+
+.content-link-user {
+  color: var(--texts-inputs-200);
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 40px 0;
+}
