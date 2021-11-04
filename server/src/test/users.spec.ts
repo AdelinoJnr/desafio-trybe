@@ -38,7 +38,7 @@ interface ReturnAllUsers {
   }>;
 }
 
-describe('1 - endpoint api/users', () => {
+describe('2 - endpoint api/users', () => {
   before(async () => {
     const connectionMock = await getConnection();
 
@@ -97,12 +97,18 @@ describe('1 - endpoint api/users', () => {
       expect(response).to.have.status(200);
     });
     it('Propriedade "name"', () => {
-      expect(response.body[0].name).to.be.equal('Adelino Junior');
-      expect(response.body[1].name).to.be.equal('Irineu');
+      expect(response.body[0].name).to.be.equal('Chaves');
+      expect(response.body[1].name).to.be.equal('Kiko');
+      expect(response.body[2].name).to.be.equal('Senhor Madruga');
+      expect(response.body[3].name).to.be.equal('Adelino Junior');
+      expect(response.body[4].name).to.be.equal('Irineu');
     });
     it('Propriedade "email"', () => {
-      expect(response.body[0].email).to.be.equal('adelinojunior@gmail.com');
-      expect(response.body[1].email).to.be.equal('irineu@gmail.com');
+      expect(response.body[0].email).to.be.equal('chaves@gmail.com');
+      expect(response.body[1].email).to.be.equal('kiko@gmail.com');
+      expect(response.body[2].email).to.be.equal('madruga@gmail.com');
+      expect(response.body[3].email).to.be.equal('adelinojunior@gmail.com');
+      expect(response.body[4].email).to.be.equal('irineu@gmail.com');
     });
   });
   describe('Busca por Usuarios pelo "id"', () => {

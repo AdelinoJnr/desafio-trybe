@@ -8,12 +8,13 @@ interface Payload {
   email: string
 }
 
-export const create = async (data: CreateTask, _user: Payload) => {
+export const create = async (data: CreateTask, user: Payload) => {
+  const { _id } = user;
   
   const { error } = Schema.createTask.validate(data);
   if (error) return { status: 400, message: 'Invalid entries!' };
 
-  const task = await Task.create(data);
+  const task = await Task.create(data, _id);
 
   return { status: 201, data: task };
 };

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 
 import { api } from '../services/api';
@@ -25,7 +26,7 @@ function Home(): JSX.Element {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [task, setTask] = useState<string>('');
 
-  const fetchApi = async () => {
+  const getAllTasks = async () => {
     try {
       const { data } = await api.get('api/tasks/userId', { headers: { Authorization: token } } );
       setTasks(data);
@@ -36,26 +37,26 @@ function Home(): JSX.Element {
 
   const createTask = async (ev: any) => {
     ev.preventDefault();
-    const userId = user._id;
-    const payload = { task, userId };
     try {
-      console.log(payload);
-      await api.post('api/tasks', payload, { headers: { Authorization: token } });
-      const { data } = await api.get('api/tasks/userId', { headers: { Authorization: token } } );
-      setTasks(data);
+      await api.post('api/tasks', { task }, { headers: { Authorization: token } });
+      await getAllTasks();
       setTask('');
     } catch (_e) {
       console.log('Deu ruim!');
     }
-    
   };
 
   useEffect(() => {
-    fetchApi();
+    getAllTasks();
   }, []);
 
-  return (
+
+  if (!token) return <Redirect to="/login" />;
+
+  return (  
     <>
+      <h2>{user && user.name}</h2>
+      <Link to="/login">Sair</Link>
       <form>
         <input
           type="text"
